@@ -29,29 +29,24 @@
       <div class="image">
         <img src="./images/area_of_trinagle.png" alt="area of trinagle image" />
       </div>
-      <br />
-      <form action="answer.php" method="POST">
-        <p>Enter the height and base in cm</p>
-        <!-- Numeric Textfield with Floating Label -->
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="height-of-triangle">
-          <label class="mdl-textfield__label" for="height-of-triangle">Height of triangle (cm)</label>
-          <span class="mdl-textfield__error">Input is not a number!</span>
+      <div class="page-content-php">
+        <div id="user-info">
+          <?php
+          // input
+          $heightOfTriangle = $_POST["height-of-triangle"];
+          $baseOfTriangle = $_POST["base-of-triangle"];
+
+          // process
+          $area = ($heightOfTriangle * $baseOfTriangle) /2;
+
+          // output
+          echo "If a triangle has a height of = " . $heightOfTriangle . " cm and a base of = " . $baseOfTriangle . " cm:";
+          echo "<br />";
+          echo "The area of the triangle is " . $area . " cm².";
+          ?>
         </div>
-      <br />
-      <!-- Numeric Textfield with Floating Label -->
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="base-of-triangle">
-        <label class="mdl-textfield__label" for="base-of-triangle">Base of triangle (cm)</label>
-        <span class="mdl-textfield__error">Input is not a number!</span>
       </div>
-      <br />
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
-        Calculate
-      </button>
-      </form>
     </main>
   </div>
 </body>
-
 </html>
